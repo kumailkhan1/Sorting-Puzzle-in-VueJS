@@ -1,6 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="sendNumber">
+      <input type="text" v-model="playerName" placeholder="Enter your name..."/>
       <input type="number" v-model="number" name="title" placeholder="Enter a number..." />
       <input type="submit" value="Submit" class="btn" />
     </form>
@@ -13,12 +14,14 @@ export default {
   data() {
     return {
       number: "",
+      playerName:""
     };
   },
   methods:{
       sendNumber(){
           //Sending number to parent
-          this.$emit("get-number",this.number);
+         
+          this.$emit("get-name-number",this.number,this.playerName);
       }
   }
 };
